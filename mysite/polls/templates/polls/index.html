@@ -1,11 +1,7 @@
-<!DOCTYPE html>
+{% extends "polls/base_generic.html" %}
 
-<head>
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
-</head>
 
-<body>
+{% block content %}
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -15,4 +11,6 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
-</body>
+
+<p>You have visited this page {{ num_visits }} {% if num_visits == 1 %} time {% else %} times{% endif %}.</p>
+{% endblock %}
